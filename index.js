@@ -1,9 +1,26 @@
+const menuBtn = document.querySelector('.menu__btn');
+const menuList = document.querySelector('.menu__list');
+
+if(menuBtn){
+menuBtn.addEventListener('click', () => {
+  menuList.classList.toggle('menu__list--active');
+  document.querySelector('.menu__btn').classList.toggle('menu__btn--active');
+  document.body.classList.toggle('noscroll');
+})
+  document.querySelector('.menu__list').addEventListener('click', (e) => {
+  if(!e.target.classList.contains('menu__list-link')){
+    menuList.classList.remove('menu__list--active');
+    document.querySelector('.menu__btn').classList.remove('menu__btn--active');
+    document.body.classList.remove('noscroll');
+  }
+ }
+)}
+
 const tabsBtn = document.querySelectorAll('.tabs__btn-item');
 const tabsCards = document.querySelectorAll('.tabs__content-item');
-console.log(tabsCards)
 
 tabsBtn.forEach(el => {
-  el.addEventListener('click', showSelectCars)
+  el.addEventListener('click', showSelectCars);
 })
 
 function showSelectCars(el){
